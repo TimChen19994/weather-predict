@@ -4,3 +4,4 @@ tensorflow
 requests
 bs4
 matplotlib
+gradio
