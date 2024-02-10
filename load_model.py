@@ -25,22 +25,19 @@ path = ''
 
 
 def preprocessdata():
-
-
     """To get the training data mean and std for the features"""
-
-with open(path + 'Preprocessing_Data.csv', newline='') as f:
+    with open(path + 'Preprocessing_Data.csv', newline='') as f:
     reader = csv.reader(f)
     data = list(reader)
 
-version = int(*data[0])
-mean = data[2]
-std = data[3]
-
-for i in range(len(mean)):
-    mean[i] = float(mean[i])
-    std[i] = float(std[i])
-return version, mean, std
+    version = int(*data[0])
+    mean = data[2]
+    std = data[3]
+    
+    for i in range(len(mean)):
+        mean[i] = float(mean[i])
+        std[i] = float(std[i])
+    return version, mean, std
 
 
 def normalize(data):
