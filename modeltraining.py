@@ -18,7 +18,7 @@ from bs4 import BeautifulSoup
 import csv
 
 
-
+path = ''
 
 def preprocesshyper():
     with open(path + 'preprocessing_data.csv', newline='') as f:
