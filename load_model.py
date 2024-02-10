@@ -97,7 +97,7 @@ def main():
     version, mean, std = preprocessdata()
     data = getdata(mean, std)
 
-    model = tf.keras.models.load_model(path + 'LTSM{}.keras'.format(version))
+    model = tf.keras.models.load_model(path + 'LTSM{}.h5'.format(version))
 
     prediction = model.predict(data)
 
