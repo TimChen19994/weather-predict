@@ -176,56 +176,56 @@ def model_train(df):
     )
     return model
 
-
-# def visualize_loss(history, title):
-#     loss = history.history["loss"]
-#     val_loss = history.history["val_loss"]
-#     epochs = range(len(loss))
-#     plt.figure()
-#     plt.plot(epochs, loss, "b", label="Training loss")
-#     plt.plot(epochs, val_loss, "r", label="Validation loss")
-#     plt.title(title)
-#     plt.xlabel("Epochs")
-#     plt.ylabel("Loss")
-#     plt.legend()
-#     plt.show()
-#
-#
-# visualize_loss(history, "Training and Validation Loss")
-#
-# def show_plot(plot_data, delta, title):
-#     labels = ["History", "True Future", "Model Prediction"]
-#     marker = [".-", "rx", "go"]
-#     time_steps = list(range(-(plot_data[0].shape[0]), 0))
-#     if delta:
-#         future = delta
-#     else:
-#         future = 0
-#
-#     plt.title(title)
-#     for i, val in enumerate(plot_data):
-#         if i:
-#           if i == 2:
-#             plt.plot(future, plot_data[i][0], marker[i], markersize=10, label=labels[i])
-#           else:
-#             plt.plot(future, plot_data[i][0], marker[i], markersize=10, label=labels[i])
-#         else:
-#             plt.plot(time_steps, plot_data[i].flatten(), marker[i], label=labels[i])
-#     plt.legend()
-#     plt.xlim([time_steps[0], (future + 5) * 2])
-#     plt.xlabel("Time-Step")
-#     plt.show()
-#     return
-#
-#
-# for x, y in dataset_val.take(5):
-#     print(x.shape)
-#     print(model.predict(x))
-#     show_plot(
-#         [x[0][:, 1].numpy(), y[0].numpy(), model.predict(x)[0]],
-#         12,
-#         "Single Step Prediction",
-#     )
+    
+    # def visualize_loss(history, title):
+    #     loss = history.history["loss"]
+    #     val_loss = history.history["val_loss"]
+    #     epochs = range(len(loss))
+    #     plt.figure()
+    #     plt.plot(epochs, loss, "b", label="Training loss")
+    #     plt.plot(epochs, val_loss, "r", label="Validation loss")
+    #     plt.title(title)
+    #     plt.xlabel("Epochs")
+    #     plt.ylabel("Loss")
+    #     plt.legend()
+    #     plt.show()
+    #
+    #
+    # visualize_loss(history, "Training and Validation Loss")
+    #
+    # def show_plot(plot_data, delta, title):
+    #     labels = ["History", "True Future", "Model Prediction"]
+    #     marker = [".-", "rx", "go"]
+    #     time_steps = list(range(-(plot_data[0].shape[0]), 0))
+    #     if delta:
+    #         future = delta
+    #     else:
+    #         future = 0
+    #
+    #     plt.title(title)
+    #     for i, val in enumerate(plot_data):
+    #         if i:
+    #           if i == 2:
+    #             plt.plot(future, plot_data[i][0], marker[i], markersize=10, label=labels[i])
+    #           else:
+    #             plt.plot(future, plot_data[i][0], marker[i], markersize=10, label=labels[i])
+    #         else:
+    #             plt.plot(time_steps, plot_data[i].flatten(), marker[i], label=labels[i])
+    #     plt.legend()
+    #     plt.xlim([time_steps[0], (future + 5) * 2])
+    #     plt.xlabel("Time-Step")
+    #     plt.show()
+    #     return
+    #
+    #
+    # for x, y in dataset_val.take(5):
+    #     print(x.shape)
+    #     print(model.predict(x))
+    #     show_plot(
+    #         [x[0][:, 1].numpy(), y[0].numpy(), model.predict(x)[0]],
+    #         12,
+    #         "Single Step Prediction",
+    #     )
 def main():
     print("HI")
     version = preprocesshyper()
@@ -233,5 +233,5 @@ def main():
     model = model_train(df)
     model.save(path + 'LTSM{}.h5'.format(version))
 
-if __name__ == "main":
+if __name__ == "__main__":
     main()
