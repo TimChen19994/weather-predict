@@ -19,11 +19,6 @@ from datetime import date
 from datetime import timedelta
 from bs4 import BeautifulSoup
 
-# Load the Drive helper and mount
-from google.colab import drive
-drive.mount('/content/drive')
-
-#!pip freeze
 
 """To get the training data mean and std for the features"""
 
