@@ -1,9 +1,9 @@
-name: refresh map
+name: retrain model
 
 on: [push]
 
 jobs:
-  getdataandrefreshmap:
+  retrain model:
     runs-on: windows-latest
     steps:
       - name: checkout repo content
