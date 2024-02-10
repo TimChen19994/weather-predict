@@ -85,5 +85,5 @@ def main():
     remove_dup.to_csv(path + 'weather_data.csv', mode='w', index=False, header=True)
 
 
-if __name__ == 'main':
+if __name__ == "__main__":
     main()
