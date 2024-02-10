@@ -2,3 +2,4 @@ pandas
 keras
 tensorflow
 requests
+bs4
