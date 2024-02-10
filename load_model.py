@@ -99,7 +99,7 @@ def main():
 
     model = tf.keras.models.load_model(path + 'LTSM{}.keras'.format(version))
 
-    prediction = model.predict(tf_data)
+    prediction = model.predict(data)
 
     with open('output.txt', 'a') as f:
         f.write("Prediction {}\n".format(prediction[0][0] * std[0] + mean[0]))
