@@ -232,5 +232,5 @@ def main():
     model = model_train(df)
     model.save(path + 'LTSM{}.h5'.format(version))
 
-if __name__ == 'main':
+if __name__ == "main":
     main()
