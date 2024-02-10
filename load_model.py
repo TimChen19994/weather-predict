@@ -38,7 +38,7 @@ def preprocessdata():
     return version, mean, std
 
 
-def normalize(data):
+def normalize(data, mean, std):
     data['Temp (F)'] = (data['Temp (F)'] - mean[0]) / std[0]
     data['Humidity'] = (data['Humidity'] - mean[1]) / std[1]
     data['Dew Point'] = (data['Dew Point'] - mean[2]) / std[2]
@@ -87,7 +87,7 @@ def getdata(mean, std):
     pd_data['Wind Gust (MPH)'] = pd_data['Wind Gust (MPH)'].astype(float)
 
     pd_data = pd_data.iloc[0:60]
-    df = normalize(pd_data)
+    df = normalize(pd_data, mean, std)
     tf_data = tf.convert_to_tensor(df)
     tf_data = tf.reshape(tf_data, [1, *tf_data.shape])
     return tf_data
