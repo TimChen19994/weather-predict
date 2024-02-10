@@ -18,7 +18,6 @@ from bs4 import BeautifulSoup
 import csv
 
 
-version = 0
 
 
 def preprocesshyper():
@@ -31,7 +30,7 @@ def preprocesshyper():
 
     with open(path + "preprocessing_data.csv", "w") as f:
         f.write("{}\n".format(version))
-
+    return version
 
 def normalize(data):
     data_mean = data.mean(axis=0)
@@ -228,7 +227,7 @@ def model_train(df):
 #         "Single Step Prediction",
 #     )
 def main():
-    data = preprocesshyper()
+    version = preprocesshyper()
     df = preprocessdata()
     model = model_train(df)
     model.save(path + 'LTSM{}.h5'.format(version))
