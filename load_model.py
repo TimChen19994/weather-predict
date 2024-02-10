@@ -25,7 +25,7 @@ from bs4 import BeautifulSoup
 path = ""
 
 def preprocessdata():
-  with open(path + 'preprocessing_data.csv', newline='') as f:
+  with open(path + 'data/' + 'preprocessing_data.csv', newline='') as f:
       reader = csv.reader(f)
       data = list(reader)
 
@@ -78,7 +78,7 @@ def main():
   
   today = date.today() - timedelta(days = 1)
   result = pd.DataFrame(columns=['Time PST', 'Temp (F)'])
-  model = tf.keras.models.load_model(path + 'LTSM{}.h5'.format(version))
+  model = tf.keras.models.load_model(path + 'model/' + 'LTSM{}.h5'.format(version))
   
   for i in range(24):
     temperature = int(model_predict(df, model)*std[0] + mean[0])
@@ -94,10 +94,10 @@ def main():
       #print(time + ', Temp {} (F)'.format(temperature))
     result.loc[len(result.index)] = [time, temperature]
 
-  result.to_csv(path+'model_prediction.csv', mode='a', index=False, header=False)
-  remove_dup = pd.read_csv(path+'model_prediction.csv')
+  result.to_csv(path + 'data/' +'model_prediction.csv', mode='a', index=False, header=False)
+  remove_dup = pd.read_csv(path + 'data/' + 'model_prediction.csv')
   remove_dup = remove_dup.drop_duplicates(subset=['Time PST'])
-  remove_dup.to_csv(path+'model_prediction.csv', mode = 'w', index=False, header=True)
+  remove_dup.to_csv(path + 'data/' +'model_prediction.csv', mode = 'w', index=False, header=True)
 
 if __name__ == "__main__":
     main()
