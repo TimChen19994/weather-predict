@@ -76,13 +76,13 @@ def main():
     pd_data['Wind Speed (in HG)'] = pd_data['Wind Speed (in HG)'].astype(float)
     pd_data['Wind Gust (MPH)'] = pd_data['Wind Gust (MPH)'].astype(float)
 
-    pd_data.to_csv(path + 'weather_data.csv', mode='a', index=False, header=False)
+    pd_data.to_csv(path + 'data/' + 'weather_data.csv', mode='a', index=False, header=False)
 
-    remove_dup = pd.read_csv(path + 'weather_data.csv')
+    remove_dup = pd.read_csv(path + 'data/' + 'weather_data.csv')
 
     remove_dup = remove_dup.drop_duplicates(subset=['Time PST'])
 
-    remove_dup.to_csv(path + 'weather_data.csv', mode='w', index=False, header=True)
+    remove_dup.to_csv(path + 'data/' + 'weather_data.csv', mode='w', index=False, header=True)
 
 
 if __name__ == "__main__":
