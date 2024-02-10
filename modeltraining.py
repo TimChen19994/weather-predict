@@ -43,7 +43,7 @@ def normalize(data):
     return (data - data_mean) / data_std
 
 
-def preprocessdata()
+def preprocessdata():
     pd_data = pd.read_csv(path + 'weather_data.csv')
     pd_data['Time PST'] = pd.to_datetime(pd_data['Time PST'])
     pd_data['Temp (F)'] = pd_data['Temp (F)'].astype(int)
@@ -232,3 +232,6 @@ def main():
     df = preprocessdata()
     model = model_train(df)
     model.save(path + 'LTSM{}.h5'.format(version))
+
+if __name__ == 'main':
+    main()
