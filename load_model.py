@@ -47,7 +47,7 @@ def normalize(data, mean, std):
   return data
 
 
-getdata(mean, std):
+def getdata(mean, std):
   pd_data = pd.read_csv(path+'weather_data.csv')
   pd_data = pd_data.iloc[-60:]
   pd_data.reset_index(drop=True, inplace=True)
