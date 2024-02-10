@@ -23,7 +23,7 @@ path = ''
 
 
 def preprocessdata():
-    """To get the training data mean and std for the features"""
+"""To get the training data mean and std for the features"""
     with open(path + 'Preprocessing_Data.csv', newline='') as f:
         reader = csv.reader(f)
         data = list(reader)
@@ -47,7 +47,7 @@ def normalize(data):
     return data
 
 
-def getdata():
+def getdata(mean, std):
     url = "https://www.localconditions.com/weather-alhambra-california/91801/past.php"
     file = requests.get(url).content
 
@@ -95,7 +95,7 @@ def getdata():
 
 def main():
     version, mean, std = preprocessdata()
-    data = getdata()
+    data = getdata(mean, std)
 
     model = tf.keras.models.load_model(path + 'LTSM{}.keras'.format(version))
 
