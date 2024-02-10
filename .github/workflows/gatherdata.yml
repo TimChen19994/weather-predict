@@ -1,4 +1,4 @@
-name: Gather Data
+name: gather data
 
 on:
   schedule:
