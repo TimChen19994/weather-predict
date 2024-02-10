@@ -21,21 +21,21 @@ import csv
 path = ''
 
 def preprocesshyper():
-    with open(path + 'preprocessing_data.csv', newline='') as f:
+    with open(path + 'data/' + 'preprocessing_data.csv', newline='') as f:
         reader = csv.reader(f)
         data = list(reader)
 
     version = int(*data[0])
     version += 1
 
-    with open(path + "preprocessing_data.csv", "w") as f:
+    with open(path + 'data/' + "preprocessing_data.csv", "w") as f:
         f.write("{}\n".format(version))
     return version
 
 def normalize(data):
     data_mean = data.mean(axis=0)
     data_std = data.std(axis=0)
-    with open(path + "preprocessing_data.csv", "a") as f:
+    with open(path + 'data/ + "preprocessing_data.csv", "a") as f:
         f.write("Mean, Standard Deviation\n")
         f.write("{}, {}, {}, {}\n".format(data_mean[0], data_mean[1], data_mean[2], data_mean[3]))
         f.write("{}, {}, {}, {}".format(data_std[0], data_std[1], data_std[2], data_std[3]))
@@ -43,7 +43,7 @@ def normalize(data):
 
 
 def preprocessdata():
-    pd_data = pd.read_csv(path + 'weather_data.csv')
+    pd_data = pd.read_csv(path + 'data/ + 'weather_data.csv')
     pd_data['Time PST'] = pd.to_datetime(pd_data['Time PST'])
     pd_data['Temp (F)'] = pd_data['Temp (F)'].astype(int)
     pd_data['Humidity'] = pd_data['Humidity'].astype(int)
@@ -157,12 +157,10 @@ def model_train(df):
     model.compile(optimizer=keras.optimizers.Adam(learning_rate=learning_rate), loss="mse")
     model.summary()
 
-    path_checkpoint = "model_checkpoint.weights.h5"
     es_callback = keras.callbacks.EarlyStopping(monitor="val_loss", min_delta=0, patience=5)
 
     modelckpt_callback = keras.callbacks.ModelCheckpoint(
         monitor="val_loss",
-        filepath=path_checkpoint,
         verbose=1,
         save_weights_only=True,
         save_best_only=True,
@@ -227,11 +225,10 @@ def model_train(df):
     #         "Single Step Prediction",
     #     )
 def main():
-    print("HI")
     version = preprocesshyper()
     df = preprocessdata()
     model = model_train(df)
-    model.save(path + 'LTSM{}.h5'.format(version))
+    model.save(path + 'model/ + 'LTSM{}.h5'.format(version))
 
 if __name__ == "__main__":
     main()
