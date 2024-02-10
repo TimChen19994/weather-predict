@@ -29,7 +29,7 @@ drive.mount('/content/drive')
 
 path = ""
 
-def preprocessdata()
+def preprocessdata():
   with open(path + 'Preprocessing_Data.csv', newline='') as f:
       reader = csv.reader(f)
       data = list(reader)
