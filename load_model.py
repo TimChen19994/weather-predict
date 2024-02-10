@@ -25,7 +25,7 @@ from bs4 import BeautifulSoup
 path = ""
 
 def preprocessdata():
-  with open(path + 'Preprocessing_Data.csv', newline='') as f:
+  with open(path + 'preprocessing_data.csv', newline='') as f:
       reader = csv.reader(f)
       data = list(reader)
 
