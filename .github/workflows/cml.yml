@@ -3,7 +3,7 @@ name: retrain model
 on: [push]
 
 jobs:
-  retrain model:
+  retrain_model:
     runs-on: windows-latest
     steps:
       - name: checkout repo content
