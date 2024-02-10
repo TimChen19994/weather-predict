@@ -157,20 +157,22 @@ def model_train(df):
     model.compile(optimizer=keras.optimizers.Adam(learning_rate=learning_rate), loss="mse")
     model.summary()
 
+
+    path_checkpoint = "model_checkpoint.weights.h5"
     es_callback = keras.callbacks.EarlyStopping(monitor="val_loss", min_delta=0, patience=5)
 
-    modelckpt_callback = keras.callbacks.ModelCheckpoint(
-        monitor="val_loss",
-        verbose=1,
-        save_weights_only=True,
-        save_best_only=True,
-    )
-
+    # modelckpt_callback = keras.callbacks.ModelCheckpoint(
+    #     monitor="val_loss",
+    #     filepath=path_checkpoint,
+    #     verbose=1,
+    #     save_weights_only=True,
+    #     save_best_only=True,
+    # )
     history = model.fit(
         dataset_train,
         epochs=epochs,
         validation_data=dataset_val,
-        callbacks=[es_callback, modelckpt_callback],
+        callbacks=[es_callback],
     )
     return model
 
