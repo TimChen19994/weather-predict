@@ -227,6 +227,7 @@ def model_train(df):
 #         "Single Step Prediction",
 #     )
 def main():
+    print("HI")
     version = preprocesshyper()
     df = preprocessdata()
     model = model_train(df)
