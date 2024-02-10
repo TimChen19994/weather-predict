@@ -26,7 +26,7 @@ path = ''
 
 def preprocessdata():
     """To get the training data mean and std for the features"""
-    with open(path + 'Preprocessing_Data.csv', newline='') as f:
+    with open('Preprocessing_Data.csv', newline='') as f:
     reader = csv.reader(f)
     data = list(reader)
 
@@ -99,7 +99,7 @@ def main():
     version, mean, std = preprocessdata()
     data = getdata()
 
-    model = tf.keras.models.load_model(path + 'LTSM{}.keras'.format(version))
+    model = tf.keras.models.load_model('LTSM{}.keras'.format(version))
 
     prediction = model.predict(tf_data)
 
