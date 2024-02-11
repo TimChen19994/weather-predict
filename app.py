@@ -93,12 +93,12 @@ def model_run():
       time = "{} {}:57:00 AM".format(today, i)
       # print(time + ', Temp {} (F)'.format(temperature))
     else:
-      time = "{} 0{}:57:00 PM".format(today, i)
+      time = "{} {}:57:00 PM".format(today, i)
       # print(time + ', Temp {} (F)'.format(temperature))
     return_string += time + ', Temp {} (F)'.format(temperature) + '\n'
 
-    return return_string
+  return return_string
 
-with gr.Interface(fn = model_run(), inputs = None, outputs="textbox") as interface:
+with gr.Interface(model_run(),None,"textbox") as interface:
     interface.launch()
 
