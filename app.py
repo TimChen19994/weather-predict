@@ -99,6 +99,6 @@ def model_run():
 
   return return_string
 
-with gr.Interface(model_run(),None,"textbox") as interface:
+with gr.Interface(model_run,None,"textbox") as interface:
     interface.launch()
 
