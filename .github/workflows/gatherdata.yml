@@ -1,11 +1,11 @@
-name: gather data
+name: gather_data
 
 on:
   schedule:
     - cron: "0 0 * * *"
 
 jobs:
-  Gather Data:
+  Gather_Data:
     runs-on: windows-latest
     steps:
       - name: checkout repo content
