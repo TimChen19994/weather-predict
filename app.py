@@ -86,13 +86,13 @@ def model_run():
     temperature = int(model_predict(df, model) * std[0] + mean[0])
     time = ""
     if i < 10:
-      time = "{} 0{}:57:00 AM".format(today, i)
+      time = "{} 0{}:00:00 AM".format(today, i)
       # print(time + ', Temp {} (F)'.format(temperature))
     elif i < 12:
-      time = "{} {}:57:00 AM".format(today, i)
+      time = "{} {}:00:00 AM".format(today, i)
       # print(time + ', Temp {} (F)'.format(temperature))
     else:
-      time = "{} {}:57:00 PM".format(today, i)
+      time = "{} {}:00:00 PM".format(today, i)
       # print(time + ', Temp {} (F)'.format(temperature))
     return_string += time + ', Temp {} (F)'.format(temperature) + '\n'
 
