@@ -100,7 +100,7 @@ def model_run():
     return return_string
 
 def main():
-  with gr.Interface(fn = model_run(), inputs = None, outputs = return_string) as interface:
+  with gr.Interface(fn = model_run(), inputs = None, outputs="textbox") as interface:
     interface.launch()
 
 if __name__ == "__main__":
