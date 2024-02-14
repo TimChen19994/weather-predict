@@ -82,6 +82,7 @@ def main():
 
     remove_dup = remove_dup.drop_duplicates(subset=['Time PST'])
 
+    remove_dup = remove_dup.sort_values(by = ['Time PST'])
     remove_dup.to_csv(path + 'data/' + 'weather_data.csv', mode='w', index=False, header=True)
 
 
