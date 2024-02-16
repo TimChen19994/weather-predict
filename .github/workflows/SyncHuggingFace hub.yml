@@ -20,4 +20,4 @@ jobs:
       - name: Push to hub
         env:
           HF: ${{ secrets.HF }}
-        run: git push --force https://Juneyy:$HF@huggingface.co/spaces/juneyy/PredictTemp30Days
+        run: git push --force https://Juneyy:$HF@huggingface.co/spaces/juneyy/PredictTemp24Hours
