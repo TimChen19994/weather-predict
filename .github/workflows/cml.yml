@@ -2,7 +2,8 @@ name: retrain model
 
 on: 
   push:
-  schedule: "0 0 * * *"
+  schedule: 
+  - cron: "0 0 * * *"
 
 jobs:
   retrain_model:
