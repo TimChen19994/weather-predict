@@ -1,6 +1,8 @@
 name: retrain model
 
-on: [push]
+on: 
+  push:
+  schedule: "0 0 * * *"
 
 jobs:
   retrain_model:
@@ -20,7 +22,6 @@ jobs:
         run: |
           python scrapeandappendforecastdata.py
           python modeltraining.py
-          python load_model.py
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
