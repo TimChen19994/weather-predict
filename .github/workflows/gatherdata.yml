@@ -1,7 +1,6 @@
 name: gather_data
 
 on:
-  push:
   schedule:
     - cron: "0 0 * * *"
 
