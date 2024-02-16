@@ -81,7 +81,7 @@ def model_run():
   result = pd.DataFrame(columns=['Time PST', 'Temp (F)'])
   model = tf.keras.models.load_model(path + 'model/' + 'LTSM{}.h5'.format(version))
 
-  return_string = "The temperature for the next 30 days in Los Angeles: \n"
+  return_string = "The temperature for the next 24 hrs in Los Angeles: \n"
   for i in range(24):
     temperature = int(model_predict(df, model) * std[0] + mean[0])
     time = ""
