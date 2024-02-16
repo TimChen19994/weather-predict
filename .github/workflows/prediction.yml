@@ -1,4 +1,4 @@
-name: retrain model
+name: model-prediction
 
 on: 
   schedule: 
